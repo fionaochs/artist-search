@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SearchDisplay component renders SearchDisplay 1`] = `
+<section>
+  <input
+    name="fefi"
+    onChange={[Function]}
+    placeholder="Search for artist"
+    type="text"
+    value="fefi"
+  />
+  <button
+    onClick={[Function]}
+  >
+    Search
+  </button>
+</section>
+`;
