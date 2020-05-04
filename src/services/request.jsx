@@ -1,13 +1,3 @@
-// export const fetchArtists = (name) => {
-//   fetch(`http://musicbrainz.org/ws/2/artist?query=${name}&fmt=json&limit=25`)
-//     .then(res => res.json())
-//     .then(artists => artists.map( artist => ({
-//       artistId: artist.id,
-//       name: artist.name,
-//       type: artist.type
-//     })));
-// };
-
 // export const fetchReleases = (releaseId) => {
 //   return fetch(`http://musicbrainz.org/ws/2/recording?release=${releaseId}&fmt=json`)
 //     .then(res => res.json())
@@ -21,8 +11,7 @@ export const fetchArtists = (name) => {
     .then(json => json.artists.map(artist => ({
       artistId: artist.id,
       artistName: artist.name
-    })))
-    .catch(err => console.log(err));
+    })));
 };
 export const fetchReleaseData = (artistId) => {
   return fetch(`http://musicbrainz.org/ws/2/release?artist=${artistId}&fmt=json`)
@@ -44,4 +33,8 @@ export const fetchSongs = (releaseId) => {
 export const fetchLyrics = (artistName, songTitle) => {
   return fetch(`https://api.lyrics.ovh/v1/${artistName}/${songTitle}`)
     .then(res => res.lyrics);
+};
+export const fetchCoverArt = (releaseId) => {
+  return fetch(`http://coverartarchive.org/release/${releaseId}/front`)
+    .then(res => res.body);
 };
