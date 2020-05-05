@@ -1,33 +1,21 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import PropTypes from 'prop-types';
-import Detail from '../Detail/Detail';
+import { fetchReleases } from '../../services/request';
+import withList from '../HOC/withList';
+import ReleaseItem from '../Release/ReleaseItem';
+import { useParams } from 'react-router-dom';
 
-const ArtistList = ({ artists }) => {
-  const artistsList = artists.map(artist => 
-    
+const ArtistList = () => {
+  const { artist, artistId } = useParams();
+
+  const { releases, pageNum, dec, inc } = fetchReleases(artistId, artist);
+  const Releases = withList(ReleaseItem);
+  return (
     <>
-      <Link key={artist.id} to={`artists/${artist.id}`}>
-        <li>
-          <Detail {...artist} />
-        </li>
-      </Link>
+      <h1>{artist}</h1>
+      <button disabled={pageNum === 1} onClick={dec}>Previous Page</button>
+      <button disabled={releases.length < 20} onClick={inc}>Next Page</button>
+      <Releases list={releases} />
     </>
   );
-
-  return (
-    <ul>
-      {artistsList}
-    </ul>
-  );
 };
-
-
-ArtistList.propTypes = {
-  artists: PropTypes.arrayOf(PropTypes.shape({
-    artistId: PropTypes.string.isRequired,
-    artistName: PropTypes.string.isRequired,
-  })).isRequired
-};
-
 export default ArtistList;

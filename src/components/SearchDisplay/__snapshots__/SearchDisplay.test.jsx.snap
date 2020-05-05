@@ -3,7 +3,7 @@
 exports[`SearchDisplay component renders SearchDisplay 1`] = `
 <section>
   <input
-    name="fefi"
+    name="artist name"
     onChange={[Function]}
     placeholder="Search for artist"
     type="text"

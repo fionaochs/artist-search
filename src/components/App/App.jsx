@@ -2,22 +2,22 @@ import React from 'react';
 import { 
   Route, 
   Switch,
-  Link,
   BrowserRouter as Router, 
 } from 'react-router-dom';
-// import SearchDisplay from '../SearchDisplay/SearchDisplay';
-import DisplayContainer from '../../containers/DisplayContainer/DisplayContainer';
+import ArtistList from '../ArtistList/ArtistList';
+import DisplayContainer from '../../DisplayContainer/DisplayContainer';
+import Release from '../Release/Release';
 
 export default function App() {
   return (
     <Router>
-      <div>
-        {/* <Link to="/">Home</Link> */}
-        <Switch>
-          <Route exact path="/" component={DisplayContainer} />  
-          {/* <Route exact path="/characters/:id" component={DetailView} /> */}
-        </Switch>
-      </div>
+      <Switch>
+        <Route exact path="/" component={DisplayContainer} />  
+        <Route exact path="/artists/:artistId" component={ArtistList} />
+        {/* <Route exact path="/lyrics/:artist/:title" component={Lyric} /> */}
+        <Route exact path="/releases/:artist/:releaseTitle/:releaseId" component={Release} />
+      </Switch>
     </Router>
   );
 }
+
