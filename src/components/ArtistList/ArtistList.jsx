@@ -9,11 +9,12 @@ const ArtistList = () => {
 
   const { releases, pageNum, dec, inc } = fetchReleases(artistId, artist);
   const Releases = withList(ReleaseItem);
+
   return (
     <>
       <h1>{artist}</h1>
-      <button disabled={pageNum === 1} onClick={dec}>Previous Page</button>
-      <button disabled={releases.length < 20} onClick={inc}>Next Page</button>
+      {/* <button disabled={pageNum === 1} onClick={dec}>Previous Page</button>
+      <button disabled={releases.length < 20} onClick={inc}>Next Page</button> */}
       <Releases list={releases} />
     </>
   );

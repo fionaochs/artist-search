@@ -10,8 +10,8 @@ const DisplayContainer = () => {
   const handleChange = ({ target }) => setName(target.value);
 
   const handleClick = () => {
-    fetchArtists(name);
   };
+  const artists = fetchArtists(name);
 
   return (
     <>
