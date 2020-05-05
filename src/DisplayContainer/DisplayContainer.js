@@ -12,7 +12,6 @@ const DisplayContainer = () => {
   const handleClick = () => {
     fetchArtists(name);
   };
-
   return (
     <>
       <SearchDisplay text={name} onChange={handleChange} onClick={handleClick}/>
