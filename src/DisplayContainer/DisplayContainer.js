@@ -10,13 +10,15 @@ const DisplayContainer = () => {
   const handleChange = ({ target }) => setName(target.value);
 
   const handleClick = () => {
-    fetchArtists(name);
+    const artists = fetchArtists(name)
+      .then(() => {});
   };
+  const artists = fetchArtists(name);
 
   return (
     <>
       <SearchDisplay text={name} onChange={handleChange} onClick={handleClick}/>
-      {/* <ArtistList artists={artists} /> */}
+      <ArtistList artists={artists} />
     </>
   );
 };

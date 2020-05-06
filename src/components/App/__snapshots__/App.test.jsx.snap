@@ -2,19 +2,22 @@
 
 exports[`App component renders App 1`] = `
 <BrowserRouter>
-  <div>
-    <Switch>
-      <Route
-        component={[Function]}
-        exact={true}
-        path="/"
-      />
-      <Route
-        component={[Function]}
-        exact={true}
-        path="/artists/:id"
-      />
-    </Switch>
-  </div>
+  <Switch>
+    <Route
+      component={[Function]}
+      exact={true}
+      path="/"
+    />
+    <Route
+      component={[Function]}
+      exact={true}
+      path="/artists/:artistId"
+    />
+    <Route
+      component={[Function]}
+      exact={true}
+      path="/releases/:artist/:releaseTitle/:releaseId"
+    />
+  </Switch>
 </BrowserRouter>
 `;

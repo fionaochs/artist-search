@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 const ArtistDetail = ({ artist, artistId, disambiguation = 'N/A' }) => {
   return (
-    <Link to={`/artists/${artist}/${artistId}`}>
+    <Link to={`/artists/${artistId}`}>
       <h1>{artist}</h1>
       <p>Disambiguation: {disambiguation}</p>
     </Link>
